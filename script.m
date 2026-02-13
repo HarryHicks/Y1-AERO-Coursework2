@@ -46,6 +46,10 @@ fprintf("Minimum Temperature: %.2f °C\n", temp_min);
 fprintf("Maximum Temperature: %.2f °C\n", temp_max);
 fprintf("Average Temperature: %.2f °C\n", temp_average);
 
+plot(time, temperature)
+xlabel = "x axis"
+ylabel = "y axis"
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
