@@ -3,12 +3,11 @@
 
 
 %% PRELIMINARY TASK - ARDUINO AND GIT INSTALLATION [5 MARKS]
-
+clear a
 a = arduino("/dev/cu.usbmodem1101","Uno")
 writeDigitalPin(a,'D10',1) 
 
 pause(5)
-clear a
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
