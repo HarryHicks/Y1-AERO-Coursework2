@@ -58,7 +58,11 @@ ylabel = "y axis"
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
-% Insert answers here
+clear a
+a = arduino("/dev/cu.usbmodem1301","Uno");
+fprintf("running")
+
+temp_monitor(a)
 
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
