@@ -6,7 +6,7 @@
 
 %{
 clear a
-a = arduino("/dev/cu.usbmodem1101","Uno")
+a = arduino("/dev/cu.usbmodem1301","Uno")
 
 for i = 1:10
     writeDigitalPin(a,'D10',1) 
@@ -18,9 +18,13 @@ end
 %}
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-clear a
-a = arduino("/dev/cu.usbmodem1101","Uno");
 
+%{
+clear a
+a = arduino("/dev/cu.usbmodem1301","Uno");
+
+
+fprintf("connected")
 duration = 20;
 time = 0:1:duration-1;
 voltage = zeros(1,duration);
@@ -49,6 +53,8 @@ fprintf("Average Temperature: %.2f °C\n", temp_average);
 plot(time, temperature)
 xlabel = "x axis"
 ylabel = "y axis"
+
+%}
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
