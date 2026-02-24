@@ -18,14 +18,14 @@ end
 %}
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
-
-%{
+% have to clear variable for program to work, and then redefine ardu
+% instance
 clear a
 a = arduino("/dev/cu.usbmodem1301","Uno");
 
 
 fprintf("connected")
-duration = 20;
+duration = 600;
 time = 0:1:duration-1;
 voltage = zeros(1,duration);
 temperature = zeros(1,duration);
@@ -34,14 +34,12 @@ volt0 = 0.5;
 temp_coeff = 0.01;
 
 for i = 1:duration
-    voltage(i) = readVoltage(a,"A1");
+    voltage(i) = readVoltage(a,"A0");
     temperature(i) = (voltage(i) - volt0) / temp_coeff;
     pause(1);
     fprintf("%.0f\n", i)
 end
 
-voltage
-temperature
 temp_min = min(temperature);
 temp_max = max(temperature);
 temp_average = mean(temperature);
@@ -51,20 +49,20 @@ fprintf("Maximum Temperature: %.2f °C\n", temp_max);
 fprintf("Average Temperature: %.2f °C\n", temp_average);
 
 plot(time, temperature)
-xlabel = "x axis"
-ylabel = "y axis"
+xlabel('time in s')
+ylabel("temperature in degrees c")
 
-%}
+
+%{
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
-%{
+
 clear a
 a = arduino("/dev/cu.usbmodem1301","Uno");
 fprintf("running")
 
 temp_monitor(a)
-%}
 
 
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
@@ -87,3 +85,4 @@ temp_prediction(a)
 % - Comment the code throughout.
 % - Commit the changes to your git repository as you progress in your programming tasks.
 % - Hand the Arduino project kit back to the lecturer with all parts and in working order.
+%}
