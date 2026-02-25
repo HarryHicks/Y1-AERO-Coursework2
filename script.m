@@ -15,7 +15,7 @@ for i = 1:10
     pause(0.5)
 end
 
-%}
+
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
 
 % have to clear variable for program to work, and then redefine ardu
@@ -53,7 +53,7 @@ xlabel('time in s')
 ylabel("temperature in degrees c")
 
 
-%{
+
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
@@ -64,7 +64,7 @@ fprintf("running")
 
 temp_monitor(a)
 
-
+%}
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 
 clear a
@@ -73,7 +73,7 @@ fprintf("running")
 
 temp_prediction(a)
 
-
+%{
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
 
 % No need to enter any answers here, please answer on the .docx template.

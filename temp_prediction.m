@@ -31,23 +31,22 @@ while true
     end
 
     fivemindiff = temp+(rate*300);
-
-    fprintf("current %.2f °C rate %.2f °C/s prediction in 5 mins %.2f °C\n", temp, rate, fivemindiff);
-
     minuterate = rate * 60;
 
-    writeDigitalPin(a,"D4",0);
-    writeDigitalPin(a,"D3",0);
-    writeDigitalPin(a,"D2",0);
-
+    fprintf("current %.2f °C rate %.2f °C/s %.2f °C/min 5 mins %.2f °C\n", temp, rate, minuterate, fivemindiff);
     if minuterate > 4
         writeDigitalPin(a,"D2",1);
-
+        writeDigitalPin(a,"D4",0);
+        writeDigitalPin(a,"D3",0);
     elseif minuterate < -4
-        writeDigitalPin(a,"D3",1);
-
-    elseif temp >= 18 && temp <= 24
         writeDigitalPin(a,"D4",1);
+        writeDigitalPin(a,"D2",0);
+        writeDigitalPin(a,"D3",0);
+    elseif temp >= 18 && temp <= 24
+        writeDigitalPin(a,"D3",1);
+        writeDigitalPin(a,"D4",0);
+        writeDigitalPin(a,"D2",0);
     end
+    pause(1)
 end
 end
