@@ -15,7 +15,7 @@ xlabel("time in s")
 ylabel("temperature in degrees C)")
 title("temp monitoring")
 
-start = tica;
+start = tic;
 
 while true    
     voltage = readVoltage(a,"A0");

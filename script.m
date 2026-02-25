@@ -15,16 +15,17 @@ for i = 1:10
     pause(0.5)
 end
 
-
+%}
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
-
 % have to clear variable for program to work, and then redefine ardu
 % instance
 clear a
 a = arduino("/dev/cu.usbmodem1301","Uno");
-
-
 fprintf("connected")
+
+file = fopen('capsule_temperature.txt','w+');
+fprintf(file,"Time(s)\tTemperature(C)\n");
+
 duration = 600;
 time = 0:1:duration-1;
 voltage = zeros(1,duration);
@@ -38,6 +39,7 @@ for i = 1:duration
     temperature(i) = (voltage(i) - volt0) / temp_coeff;
     pause(1);
     fprintf("%.0f\n", i)
+    fprintf(fileID,"%.0f\t%.2f\n", time(i), temperature(i));
 end
 
 temp_min = min(temperature);
@@ -53,7 +55,7 @@ xlabel('time in s')
 ylabel("temperature in degrees c")
 
 
-
+%{
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
@@ -64,7 +66,7 @@ fprintf("running")
 
 temp_monitor(a)
 
-%}
+
 %% TASK 3 - ALGORITHMS – TEMPERATURE PREDICTION [30 MARKS]
 
 clear a
@@ -73,7 +75,7 @@ fprintf("running")
 
 temp_prediction(a)
 
-%{
+
 %% TASK 4 - REFLECTIVE STATEMENT [5 MARKS]
 
 % No need to enter any answers here, please answer on the .docx template.
