@@ -70,6 +70,10 @@ plot(time, temperature)
 xlabel('time in s')
 ylabel("temperature in degrees c")
 
+% close file after done
+
+fclose(fileID);
+
 
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
